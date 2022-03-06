@@ -1,0 +1,7 @@
+{
+  "name": "FranCarDotCOM",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

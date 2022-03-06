@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-title>
+          FranCarDOTCOM
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+  <ion-card>
+      <ion-card-header>
+          Listar Coches
+      </ion-card-header>
+      <ion-card-content>
+          <p>
+              Vea todos los coches del concesionario
+              <button ion-button icon-left>
+                <ion-icon name="car-sport-outline"></ion-icon>
+          <a routerLink="/listarcoche">Listar coches</a>
+      </button>
+      </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Añadir coche
+  </ion-card-header>
+  <ion-card-content>
+      <p>
+        Crea el coche mas molon de tu barrio
+        <button ion-button icon-left>
+            <ion-icon name="car-sport-outline"></ion-icon>
+      <a routerLink="/anadircoche">Añadir coche </a>
+  </button>
+  </ion-card-content>
+  </ion-card>
+  <ion-card>
+      <ion-card-header>
+          Libros favoritos
+      </ion-card-header>
+      <ion-card-content>
+          <button ion-button icon-left>
+    <ion-icon name="book" style="zoom: 2.0;"></ion-icon>
+    <a routerLink="/favoritos">Mostrar Libros</a>
+  </button>
+      </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,8 +26,10 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     { provide: RouteReuseStrategy,
-      useClass: IonicRouteStrategy }
+      useClass: IonicRouteStrategy },
+      AuthGuard
     ],
   bootstrap: [AppComponent],
 })
+
 export class AppModule { }

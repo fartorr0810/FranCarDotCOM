@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Bienvenido amigo, es hora de volver a casa</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <br><br>
+  <form (ngSubmit)="login()" autocomplete="off" #formulario="ngForm">
+      <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [(ngModel)]="usuario.usuario" name="email" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="usuario.password" type="password" name="password" required></ion-input>
+      </ion-item>
+      <ion-button class="ion-margin-top" type="submit" [disabled]="formulario.invalid" expand="block" color="dark">
+          Loguearse
+      </ion-button>
+  </form>
+</ion-content>

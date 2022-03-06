@@ -23,6 +23,14 @@ const routes: Routes = [
     path: 'anadircoche',
     loadChildren: () => import('./anadircoche/anadircoche.module').then( m => m.AnadircochePageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
 ];
 
 @NgModule({

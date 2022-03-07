@@ -19,7 +19,7 @@ export class DataCocheService {
     return collectionData(biciRef, { idField: 'id'}) as Observable<CocheInterface[]>;
   }
 
-  addBici(coche: CocheAInterface){
+  addCoche(coche: CocheAInterface){
     const biciRef = collection(this.firestore, 'coches');
     return addDoc(biciRef, coche);
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { CocheAInterface } from '../interfaces/coche.interface';
 import { DataCocheService } from '../services/data-coche.service';
 
@@ -26,14 +27,28 @@ export class AnadircochePage implements OnInit {
     cv:0,
     imagen:''
   }
-  constructor(private serviciocoche:DataCocheService, private fb:FormBuilder,private route:Router) {
-
+  constructor(private serviciocoche:DataCocheService, private fb:FormBuilder,
+    private route:Router,
+    private alerta:AlertController) {
   }
 
   ngOnInit() {
   }
   anadirCoche(){
-    this.serviciocoche.addBici(this.coche);
-    this.route.navigateByUrl('/listacoches')
+    this.serviciocoche.addCoche(this.coche);
+    this.mostrarAlerta();
   }
+
+  mostrarAlerta(){
+    this.alerta.create({
+      header: 'Creado',
+      subHeader: 'Vehiculo añadido con exito',
+      message: 'Ahre',
+      buttons: ['OK']
+    }).then(resp=>{
+      this.route.navigateByUrl('/listacoches')
+      resp.present();
+    });
+  }
+
 }

@@ -5,7 +5,7 @@ import { VercochePage } from './vercoche.page';
 
 const routes: Routes = [
   {
-    path: 'coche/:id',
+    path: ':id',
     component: VercochePage
   }
 ];

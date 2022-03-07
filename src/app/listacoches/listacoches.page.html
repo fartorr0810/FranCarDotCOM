@@ -1,37 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-title>Lista de coches</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Lista de coches</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-list>
-    <ion-item *ngFor="let coche of listacoches">
-        <ion-label style="margin-left: 2%;">
-            <ion-text color="dark">
-                <h2><b>Marca: {{ coche.marca }}</b></h2>
-            </ion-text>
-            <ion-text color="medium">
-                <p>Modelo: {{coche.modelo}}</p>
-            </ion-text>
-            <ion-text color="medium">
-                <p>Caballos de potencia: {{coche.cv}}</p>
-            </ion-text>
-            <ion-text color="medium">
-              <p>Lanzamiento del coche: {{coche.lanzamiento}}</p>
-          </ion-text>
-          <ion-text color="medium">
-            <p>Velocidad Maxima: {{coche.velocidadmaxima}}</p>
-        </ion-text>
-        <div>
-          <img src="{{coche.imagen}}" alt="Imagen del coche" srcset="">
-        </div>
-        <br>
-            <ion-text>
-                 <a [routerLink]="['/coche',coche.id]">Ver Coche</a> -->
-            </ion-text>
-        </ion-label>
-    </ion-item>
-</ion-list>
+    <ion-list>
+        <ion-item *ngFor="let coche of listacoches">
+            <ion-label style="margin-left: 2%;">
+                <ion-text color="dark">
+                    <h2><b>Marca: {{ coche.marca }}</b></h2>
+                </ion-text>
+                <ion-text color="medium">
+                    <p>Modelo: {{coche.modelo}}</p>
+                </ion-text>
+                <div>
+                    <img src="{{coche.imagen}}" alt="Imagen del coche" srcset="">
+                </div>
+                <br>
+                <ion-text>
+                    <a [routerLink]="['/vercoche',coche.id]">Ver Coche</a> -->
+                </ion-text>
+            </ion-label>
+        </ion-item>
+    </ion-list>
 
 </ion-content>

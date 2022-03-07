@@ -1,19 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CocheAInterface } from '../interfaces/coche.interface';
 import { DataCocheService } from '../services/data-coche.service';
 
 @Component({
   selector: 'app-vercoche',
   templateUrl: './vercoche.page.html',
-  styleUrls: ['./vercoche.page.scss'],
+  styleUrls: [],
 })
 export class VercochePage implements OnInit {
-  coche!: CocheAInterface;
-  constructor(private cocheData:DataCocheService) {
+
+  coche: CocheAInterface;
+  mostrarcoche:boolean=false;
+  constructor(private cocheData:DataCocheService,
+    private activadorruta:ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.cocheData.getCochePorId(1);
+    this.cocheData.getCochePorId(this.activadorruta.snapshot.params["id"]).subscribe(resp=>{
+      console.log(resp);
+      this.coche=resp;
+      this.mostrarcoche=true;
+    });
   }
 
 }

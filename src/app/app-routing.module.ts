@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'vercoche',
     loadChildren: () => import('./vercoche/vercoche.module').then( m => m.VercochePageModule)
   },
+  {
+    path: 'editarcoche',
+    loadChildren: () => import('./editarcoche/editarcoche.module').then( m => m.EditarcochePageModule)
+  },
 ];
 
 @NgModule({

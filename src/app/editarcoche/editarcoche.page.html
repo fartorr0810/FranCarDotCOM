@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Editar coche</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form (ngSubmit)="editarCoche()" autocomplete="off" #formulario="ngForm" *ngIf="mostrarcoche==true">
+        <ion-item>
+            <ion-label position="floating">Marca</ion-label>
+            <ion-input type="text" [(ngModel)]="coche.marca" name="marca" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Modelo</ion-label>
+            <ion-input type="text" [(ngModel)]="coche.modelo" name="modelo" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Año del Lanzamiento</ion-label>
+            <ion-input type="number" [(ngModel)]="coche.lanzamiento" name="lanzamiento" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Velocidad Maxima</ion-label>
+            <ion-input type="text" [(ngModel)]="coche.velocidadmaxima" name="velocidadmaxima" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Caballos de potencia</ion-label>
+            <ion-input type="number" [(ngModel)]="coche.cv" name="cv" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Link de foto</ion-label>
+            <ion-input type="text" [(ngModel)]="coche.imagen" name="imagen"></ion-input>
+        </ion-item>
+        <ion-button class="ion-margin-top" type="submit" [disabled]="formulario.invalid" expand="block" color="dark">
+            Editar Coche Talegero
+        </ion-button>
+    </form>
+
+</ion-content>

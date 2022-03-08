@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const result = this.controlacceso.comprobarUsuario()
       result.then(resp=>{
-        console.log(resp);
         if(!resp){
           //TODO
           this.router.navigateByUrl('home');

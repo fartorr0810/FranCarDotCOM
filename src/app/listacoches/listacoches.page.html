@@ -15,15 +15,25 @@
                     <p>Modelo: {{coche.modelo}}</p>
                 </ion-text>
                 <div>
-                    <img src="{{coche.imagen}}" alt="Imagen del coche" srcset="">
+                    <img src="{{coche.imagen}}" alt="Imagen del coche" srcset="" class="img-container" style="width: 200;">
                 </div>
                 <br>
-                <ion-text>
-                    <a [routerLink]="['/vercoche',coche.id]">Ver Coche</a> -->
-                </ion-text>
-                <button ion-button (click)="eliminarCoche(coche)" icon-start large round color="dark">
-                  <ion-icon name="star">Eliminar coche</ion-icon>
-                </button>
+                <a [routerLink]="['/vercoche',coche.id]">
+                    <ion-button icon-start large round color="dark">
+                        Ver coche
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </ion-button>
+                </a>
+                <ion-button (click)="eliminarCoche(coche)" icon-start large round color="dark">
+                    Eliminar coche
+                    <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+                <a [routerLink]="['/editarcoche',coche.id]">
+                    <ion-button icon-start large round color="dark">
+                        Editar coche
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </ion-button>
+                </a>
             </ion-label>
         </ion-item>
     </ion-list>

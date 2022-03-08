@@ -21,4 +21,8 @@ export class ListacochesPage implements OnInit {
       this.listacoches=resp;
     });
   }
+  eliminarCoche(coche:CocheInterface){
+    console.log(coche);
+    this.serviciocoches.borrarCochePorId(coche);
+  }
 }

@@ -21,6 +21,9 @@
                 <ion-text>
                     <a [routerLink]="['/vercoche',coche.id]">Ver Coche</a> -->
                 </ion-text>
+                <button ion-button (click)="eliminarCoche(coche)" icon-start large round color="dark">
+                  <ion-icon name="star">Eliminar coche</ion-icon>
+                </button>
             </ion-label>
         </ion-item>
     </ion-list>

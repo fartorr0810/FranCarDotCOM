@@ -15,22 +15,22 @@ export class DataCocheService {
   }
 
   getListaCoches(): Observable<CocheInterface[]>{
-    const biciRef = collection(this.firestore, 'coches');
-    return collectionData(biciRef, { idField: 'id'}) as Observable<CocheInterface[]>;
+    const refcar = collection(this.firestore, 'coches');
+    return collectionData(refcar, { idField: 'id'}) as Observable<CocheInterface[]>;
   }
 
   addCoche(coche: CocheAInterface){
-    const biciRef = collection(this.firestore, 'coches');
-    return addDoc(biciRef, coche);
+    const refcar = collection(this.firestore, 'coches');
+    return addDoc(refcar, coche);
   }
 
   getCochePorId(id): Observable<CocheInterface>{
-    const biciRef = doc(this.firestore, `coches/${id}`);
-    return docData(biciRef, { idField: 'id' }) as Observable<CocheInterface>;
+    const refcar = doc(this.firestore, `coches/${id}`);
+    return docData(refcar, { idField: 'id' }) as Observable<CocheInterface>;
   }
 
   borrarCochePorId(coche:CocheInterface){
-    const biciRef = doc(this.firestore, `cochess/${coche.id}`);
-    return deleteDoc(biciRef);
+    const refcar = doc(this.firestore, `coches/${coche.id}`);
+    return deleteDoc(refcar);
   }
 }

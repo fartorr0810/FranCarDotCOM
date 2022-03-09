@@ -37,6 +37,7 @@ export class AnadircochePage implements OnInit {
   anadirCoche(){
     this.serviciocoche.addCoche(this.coche);
     this.mostrarAlerta();
+    this.route.navigateByUrl("/dashboard");
   }
 
   mostrarAlerta(){

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { CocheInterface } from '../interfaces/coche.interface';
 import { DataCocheService } from '../services/data-coche.service';
 
@@ -11,7 +13,9 @@ export class ListacochesPage implements OnInit {
 
   listacoches: CocheInterface[]=[];
 
-  constructor(private serviciocoches:DataCocheService) { }
+  constructor(private serviciocoches:DataCocheService,
+    private alerta:AlertController,
+    private route:Router) { }
 
   ngOnInit() {
     this.obtenerListacoches();
@@ -22,7 +26,18 @@ export class ListacochesPage implements OnInit {
     });
   }
   eliminarCoche(coche:CocheInterface){
-    console.log(coche);
     this.serviciocoches.borrarCochePorId(coche);
+    this.mostrarAlerta();
   }
+  mostrarAlerta(){
+    this.alerta.create({
+      header: 'Eliminado',
+      subHeader: 'Vehiculo eliminado con exito',
+      buttons: ['OK']
+    }).then(resp=>{
+      this.route.navigateByUrl('/listacoches')
+      resp.present();
+    });
+  }
+
 }

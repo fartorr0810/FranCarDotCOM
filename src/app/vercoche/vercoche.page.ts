@@ -18,7 +18,6 @@ export class VercochePage implements OnInit {
 
   ngOnInit() {
     this.cocheData.getCochePorId(this.activadorruta.snapshot.params["id"]).subscribe(resp=>{
-      console.log(resp);
       this.coche=resp;
       this.mostrarcoche=true;
     });

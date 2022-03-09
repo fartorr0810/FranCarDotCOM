@@ -14,9 +14,13 @@
                 <ion-text color="medium">
                     <p>Modelo: {{coche.modelo}}</p>
                 </ion-text>
-                <div>
+                <div *ngIf="coche.imagen!=''">
                     <img src="{{coche.imagen}}" alt="Imagen del coche" srcset="" class="img-container" style="width: 200;">
                 </div>
+                <div *ngIf="coche.imagen==''">
+                    <img src="https://thumbs.dreamstime.com/b/icono-prohibido-del-coche-s%C3%ADmbolo-veh%C3%ADculo-no-hay-aparcamiento-167569716.jpg" alt="Imagen del coche" srcset="" class="img-container" style="width: 200;">
+                </div>
+
                 <br>
                 <a [routerLink]="['/vercoche',coche.id]">
                     <ion-button icon-start large round color="dark">

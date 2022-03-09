@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private storage: Storage) {
+
+  }
+  async ngOnInit() {
+    await this.storage.create();
+  }
 }

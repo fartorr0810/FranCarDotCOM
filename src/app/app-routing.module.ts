@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'editarcoche',
     loadChildren: () => import('./editarcoche/editarcoche.module').then( m => m.EditarcochePageModule)
   },
+  {
+    path: 'listafavoritos',
+    loadChildren: () => import('./listafavoritos/listafavoritos.module').then( m => m.ListafavoritosPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CocheAInterface, CocheInterface } from '../interfaces/coche.interface';
+import { ServicioFavoritosService } from '../services/servicio-favoritos.service';
 
 @Component({
   selector: 'app-listafavoritos',
@@ -8,12 +9,14 @@ import { CocheAInterface, CocheInterface } from '../interfaces/coche.interface';
 })
 export class ListafavoritosPage implements OnInit {
 
-  listafavoritos:CocheInterface[]=this.storage.get('favoritos');
+  listafavoritos:CocheInterface[]=[]
+  mostrardiv=false;
 
-  constructor(private storage:Storage) { }
+  constructor(private servFav:ServicioFavoritosService) { }
 
   ngOnInit() {
-
+    this.listafavoritos=this.servFav.getCochesFavoritos;
+    this.mostrardiv=true;
   }
 
 }

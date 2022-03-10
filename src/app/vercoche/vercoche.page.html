@@ -27,9 +27,15 @@
             <img src="{{coche.imagen}}" alt="Imagen del coche" srcset="">
         </div>
         <br>
-        <ion-button (click)="compartirEnInstagram()" icon-start large round color="dark">
+        <ion-button *ngIf="!esfavorito" (click)="addFavorito('favoritos', coche)">
+          <ion-icon name="star-outline"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="esfavorito" (click)="borrarFavorito('favoritos')">
+          <ion-icon name="star"></ion-icon>
+      </ion-button>
+        <ion-button (click)="compartirEnInstagram()" icon-start large round>
             Comparte en Instagram
-            <ion-icon name="trash-outline"></ion-icon>
+            <ion-icon name="logo-instagram"></ion-icon>
         </ion-button>
     </ion-label>
 </ion-item>

@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../auth.guard';
 
 import { EditarcochePage } from './editarcoche.page';
 
 const routes: Routes = [
   {
     path: ':id',
-    component: EditarcochePage
+    component: EditarcochePage,
+    canActivate:[AuthGuard]
   }
 ];
 

@@ -10,7 +10,11 @@ import { DataCocheService } from '../services/data-coche.service';
   templateUrl: './anadircoche.page.html',
   styleUrls: [],
 })
+/**
+ * Pagina de anadir coche
+ */
 export class AnadircochePage implements OnInit {
+  //Declaramos el formulario
   formulario: FormGroup=this.fb.group({
     marca: [''],
     modelo: [''],
@@ -19,6 +23,7 @@ export class AnadircochePage implements OnInit {
     cv:[''],
     imagen:['']
   })
+  //Interfaz del coche
   coche:CocheAInterface={
     marca: '',
     modelo: '',
@@ -27,6 +32,7 @@ export class AnadircochePage implements OnInit {
     cv:0,
     imagen:''
   }
+  //Constructor
   constructor(private serviciocoche:DataCocheService, private fb:FormBuilder,
     private route:Router,
     private alerta:AlertController) {
@@ -34,12 +40,13 @@ export class AnadircochePage implements OnInit {
 
   ngOnInit() {
   }
+  //Anadimos coche a la base de datos de firebase y posteriormente nos manda al dashboard
   anadirCoche(){
     this.serviciocoche.addCoche(this.coche);
     this.mostrarAlerta();
     this.route.navigateByUrl("/dashboard");
   }
-
+//Metodo en el que se muestra la alerta
   mostrarAlerta(){
     this.alerta.create({
       header: 'Creado',

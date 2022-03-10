@@ -19,7 +19,6 @@ export class AuthGuard implements CanActivate {
       const result = this.controlacceso.comprobarUsuario()
       result.then(resp=>{
         if(!resp){
-          //TODO
           this.router.navigateByUrl('home');
         }
       });

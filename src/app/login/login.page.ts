@@ -9,7 +9,7 @@ import { ControlaccesoService } from '../services/controlacceso.service';
   styleUrls: [],
 })
 export class LoginPage implements OnInit {
-
+//Atributos
   formulario:FormGroup=this.fb.group({
     usuario:[''],
     password:['']
@@ -19,11 +19,12 @@ export class LoginPage implements OnInit {
     usuario:'',
     password:''
   }
+  //Inyectamos servicios
   constructor(private controlacceso:ControlaccesoService,private fb:FormBuilder) { }
 
   ngOnInit() {
   }
-
+//Llamamos al metodo login
   login(){
     this.controlacceso.login(this.usuario);
   }

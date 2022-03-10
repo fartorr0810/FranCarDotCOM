@@ -7,13 +7,16 @@ import { ServicioFavoritosService } from '../services/servicio-favoritos.service
   templateUrl: './listafavoritos.page.html',
   styleUrls: ['./listafavoritos.page.scss'],
 })
+/**
+ * Pagina para listar favoritos
+ */
 export class ListafavoritosPage implements OnInit {
-
+//Atributos
   listafavoritos:CocheInterface[]=[]
   mostrardiv=false;
-
+//Inyectamos los servicios
   constructor(private servFav:ServicioFavoritosService) { }
-
+//Metodos que se llaman al iniciar
   ngOnInit() {
     this.listafavoritos=this.servFav.getCochesFavoritos;
     this.mostrardiv=true;

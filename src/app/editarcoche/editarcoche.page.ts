@@ -10,11 +10,14 @@ import { DataCocheService } from '../services/data-coche.service';
   templateUrl: './editarcoche.page.html',
   styleUrls: ['./editarcoche.page.scss'],
 })
+/**
+ * Pagina para editar la pagina
+ */
 export class EditarcochePage implements OnInit {
-
+//Atributos
   coche: CocheAInterface;
   mostrarcoche:boolean=false;
-
+//Declaramos formulario
   formulario: FormGroup=this.fb.group({
     marca: [''],
     modelo: [''],
@@ -23,7 +26,6 @@ export class EditarcochePage implements OnInit {
     cv:[''],
     imagen:['']
   })
-
   cochecito:CocheAInterface={
     marca: '',
     modelo: '',
@@ -32,19 +34,24 @@ export class EditarcochePage implements OnInit {
     cv:0,
     imagen:''
   }
+  //Inyectamos servicios
   constructor(private serviciocoche:DataCocheService, private fb:FormBuilder,
     private route:Router,
     private alerta:AlertController,
     private activadorruta:ActivatedRoute) { }
 
-
+/**
+ * Recogemos coche por id que viaja en la ruta
+ */
   ngOnInit() {
     this.serviciocoche.getCochePorId(this.activadorruta.snapshot.params["id"]).subscribe(resp=>{
       this.coche=resp;
       this.mostrarcoche=true;
     });
   }
-
+/**
+ * Editar coche y posteriormente se muestra la alerta y se sube a la base de datos
+ */
   editarCoche(){
     this.cochecito=this.coche;
     let num=this.activadorruta.snapshot.params["id"]
@@ -61,6 +68,7 @@ export class EditarcochePage implements OnInit {
     this.mostrarAlerta();
 
   }
+  //Alerta
   mostrarAlerta(){
     this.alerta.create({
       header: 'Edición completada',
